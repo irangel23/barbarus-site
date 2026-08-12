@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop — Privacy Policy</title>
+<style>
+  :root{
+    --text:#1c1c1e; --muted:#6e6e73; --bg:#ffffff; --card:#f5f5f7; --link:#0066cc; --border:#e5e5e7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --text:#f2f2f7; --muted:#98989d; --bg:#000000; --card:#1c1c1e; --link:#4da3ff; --border:#2c2c2e; }
+  }
+  body{
+    margin:0; padding:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.6;
+  }
+  .wrap{ max-width:720px; margin:0 auto; padding:28px 24px 80px; }
+  .back{ color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; display:inline-block; margin-bottom:24px; }
+  .back:hover{ color:var(--text); }
+  h1{ font-size:28px; font-weight:700; margin:0 0 6px; }
+  .updated{ color:var(--muted); font-size:14px; margin:0 0 32px; }
+  h2{ font-size:19px; font-weight:700; margin:36px 0 10px; }
+  p, li{ font-size:16px; }
+  ul{ padding-left:22px; }
+  li{ margin-bottom:8px; }
+  .note{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:14px 16px; font-size:14px; color:var(--muted); margin:0 0 32px;
+  }
+  a{ color:var(--link); }
+  .contact{
+    background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px 18px; margin-top:16px;
+  }
+  footer{ margin-top:48px; color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="/">← Barbarus Consulting</a>
+
+  <h1>Privacy Policy for Workshop</h1>
+  <p class="updated">Last updated: August 11, 2026</p>
+
+  <div class="note">
+    This policy is written to accurately describe what the Workshop app actually does. It's provided as a
+    starting point rather than formal legal advice — if you're distributing Workshop broadly or operating
+    under specific regulatory requirements (GDPR, CCPA, etc.), it's worth having it reviewed before relying
+    on it.
+  </div>
+
+  <h2>Overview</h2>
+  <p>
+    Workshop is a personal project- and maintenance-tracking app for iOS, developed by Barbarus Consulting
+    ("we," "us," or "our"). Workshop does not have a server, does not require an account, and does not
+    collect, transmit, or sell your personal information. Everything you create in Workshop — projects,
+    templates, folders, vehicles, maintenance records, notes, checklists, and photos — is stored locally on
+    your device, under your control.
+  </p>
+
+  <h2>Information Workshop Does Not Collect</h2>
+  <p>Workshop does not use analytics, advertising, or crash-reporting services, and does not have a backend
+    server of any kind. We never see, receive, or have access to your data. Specifically, Workshop does
+    not:</p>
+  <ul>
+    <li>Require you to create an account or sign in</li>
+    <li>Collect or transmit your projects, notes, photos, or other content to us</li>
+    <li>Track your usage or behavior within the app</li>
+    <li>Show ads or share data with advertisers</li>
+    <li>Sell or rent any information to third parties</li>
+  </ul>
+
+  <h2>Data Stored on Your Device</h2>
+  <p>All of your projects, templates, folders, vehicle records, and maintenance data are stored in the app's
+    local storage on your device. Photos, file attachments, and 3D model files are stored in the app's private
+    on-device storage. None of this leaves your device unless you take one of the actions described below.</p>
+
+  <h2>Optional Features That Involve Your Data</h2>
+  <p>A few features are opt-in and involve data leaving the app — always as a direct result of an action you
+    take, never automatically or in the background:</p>
+  <ul>
+    <li>
+      <strong>Camera and Photo Library</strong> — if you attach a photo to a project, vehicle, or maintenance
+      record, Workshop accesses your camera or photo library only at that moment, with your permission,
+      to let you pick or take the photo. The resulting image is stored on your device as described above.
+    </li>
+    <li>
+      <strong>iCloud Backup</strong> — if you tap "Back Up to iCloud," Workshop writes a backup file
+      containing your project data to your own iCloud Drive, in a folder private to Workshop. This uses your
+      personal iCloud account and Apple's iCloud service — Barbarus Consulting never has access to this
+      data. You can delete these backups at any time from the Files app.
+    </li>
+    <li>
+      <strong>Export/Import Backup</strong> — the "Export Backup" option creates a local backup file and
+      hands it to iOS's native share sheet, so you can save or send it wherever you choose (Files, AirDrop,
+      Mail, etc.). "Import Backup" reads a backup file you select back into the app. Barbarus Consulting is
+      never involved in this transfer.
+    </li>
+    <li>
+      <strong>Calendar Sync</strong> — if you choose to sync a Date field to your calendar, Workshop creates
+      or updates a single event (a title and a date — nothing else about your project) in a calendar you
+      select, using Apple's Calendar framework. If that calendar belongs to an iCloud account, the event syncs
+      across your devices through Apple's iCloud service, the same way any calendar event would. Turning
+      sync off, or deleting the field/project, removes the event.
+    </li>
+    <li>
+      <strong>VIN Decoding</strong> — if you enter a vehicle's VIN and use "Decode VIN," Workshop sends that
+      VIN number to the National Highway Traffic Safety Administration's free public vPIC API
+      (<a href="https://vpic.nhtsa.dot.gov/" target="_blank" rel="noopener">vpic.nhtsa.dot.gov</a>), a U.S.
+      government service, to look up the vehicle's year, make, model, and similar details. Only the VIN
+      itself is sent — no other information about you or your device.
+    </li>
+  </ul>
+
+  <h2>Third-Party Services</h2>
+  <p>Workshop relies on two categories of third-party infrastructure, both operated by parties you already
+    have a direct relationship with, not by Barbarus Consulting:</p>
+  <ul>
+    <li><strong>Apple</strong> — for iCloud backup and calendar sync, both of which are optional and use your
+      own Apple ID. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's
+      Privacy Policy</a>.</li>
+    <li><strong>NHTSA (vPIC API)</strong> — for VIN decoding, only if you use that feature. See the
+      <a href="https://vpic.nhtsa.dot.gov/api/" target="_blank" rel="noopener">vPIC API documentation</a>.</li>
+  </ul>
+
+  <h2>Data Retention and Deletion</h2>
+  <p>Your data stays on your device for as long as Workshop is installed. Deleting the app removes all of its
+    locally stored data and files. iCloud backups and synced calendar events live outside the app itself (in
+    your iCloud Drive and calendar, respectively) and persist until you remove them there, even after
+    uninstalling Workshop — Workshop deletes calendar events it created automatically when you delete the
+    corresponding field, project, or maintenance record within the app, but backup files in iCloud Drive are
+    left for you to manage.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>Workshop is not directed at children and does not knowingly collect information from anyone, regardless
+    of age — since Workshop does not collect information from any user in the first place.</p>
+
+  <h2>Security</h2>
+  <p>Because your data is stored locally on your device rather than on a server we operate, its security
+    depends on your device's own security (passcode, Face ID/Touch ID, disk encryption) and, for the optional
+    iCloud features, your Apple ID's security.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If this policy changes, the "Last updated" date at the top of this page will change accordingly. Since
+    Workshop has no accounts or push notifications, we'd encourage checking back here periodically if you
+    want to stay current.</p>
+
+  <h2>Contact</h2>
+  <div class="contact">
+    <p style="margin:0;">Questions about this policy or Workshop's data practices can be sent to:</p>
+    <p style="margin:8px 0 0;"><a href="mailto:privacy@barbarusconsulting.com">privacy@barbarusconsulting.com</a></p>
+  </div>
+
+  <footer>Workshop is developed by Barbarus Consulting.</footer>
+
+</div>
+</body>
+</html>
