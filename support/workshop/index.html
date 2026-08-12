@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop — Support</title>
+<meta name="description" content="Support and frequently asked questions for Workshop, the project and maintenance tracker for iOS.">
+<style>
+  :root{
+    --bg:#F4F6F8; --grain:url(../../assets/grain-light.jpg);
+    --text:#121821; --heading:#1F2E45; --muted:#54606B; --link:#006E96;
+    --card:#ffffff; --border:#B0B7BC;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#121821; --grain:url(../../assets/grain-dark.jpg);
+      --text:#F4F6F8; --heading:#F4F6F8; --muted:#B0B7BC; --link:#00A8E8;
+      --card:#1F2E45; --border:rgba(176,183,188,0.28);
+    }
+  }
+  body{
+    margin:0; padding:0; color:var(--text);
+    background-color:var(--bg); background-image:var(--grain); background-repeat:repeat;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.6;
+  }
+  .wrap{ max-width:720px; margin:0 auto; padding:28px 24px 80px; }
+  .back{ color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; display:inline-block; margin-bottom:24px; }
+  .back:hover{ color:var(--link); }
+  h1{ color:var(--heading); font-size:28px; font-weight:700; margin:0 0 6px; }
+  .app-name-inline{ display:inline-flex; align-items:center; gap:8px; vertical-align:middle; }
+  .app-icon-mark{ width:28px; height:28px; border-radius:7px; display:inline-block; }
+  .intro{ color:var(--muted); font-size:16px; margin:0 0 32px; }
+  h2{ color:var(--heading); font-size:19px; font-weight:700; margin:36px 0 10px; }
+  h3{ color:var(--heading); font-size:16px; font-weight:700; margin:22px 0 6px; }
+  p, li{ font-size:16px; }
+  ul{ padding-left:22px; }
+  li{ margin-bottom:8px; }
+  a{ color:var(--link); }
+  .contact{
+    background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px 18px; margin-top:16px;
+  }
+  footer{ margin-top:48px; color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="/">← Barbarus Consulting</a>
+
+  <h1>Support for <span class="app-name-inline"><img class="app-icon-mark" src="../../assets/workshop-app-icon.png" alt="">Workshop</span></h1>
+  <p class="intro">
+    Answers to common questions, plus how to reach us directly if you're stuck or found a bug.
+  </p>
+
+  <h2>Backing Up and Moving Your Data</h2>
+  <p>Since Workshop stores everything on your device and has no account or server, backups are entirely
+    in your hands. There are two ways to do it, both from Settings:</p>
+  <h3>Back Up to iCloud</h3>
+  <p>Tap "Back Up to iCloud" to save a backup file to your own iCloud Drive, in a folder private to
+    Workshop. This is the easiest way to move data to a new device — just restore from the same option
+    after installing Workshop there.</p>
+  <h3>Export / Import Backup</h3>
+  <p>"Export Backup" creates a local backup file and hands it to iOS's share sheet, so you can save it to
+    Files, send it by AirDrop, email it to yourself, or store it anywhere else you'd like. "Import Backup"
+    reads a backup file back into the app. Useful for backups outside iCloud, or moving data between
+    accounts.</p>
+
+  <h2>Siri Shortcuts</h2>
+  <p>Workshop supports two Siri shortcuts, available once you've created at least one project:</p>
+  <ul>
+    <li><strong>Add a note</strong> to a specific project — say something like "Add a note to [project
+      name] in Workshop," and Siri will ask what you'd like the note to say.</li>
+    <li><strong>Mark maintenance done</strong> — say "Mark [task] as done in Workshop," and Siri will walk
+      you through any fields the task needs (mileage, cost, notes) by voice.</li>
+  </ul>
+  <p>If Siri doesn't recognize a project or task by name, open Workshop once so it can refresh its index,
+    then try again.</p>
+
+  <h2>Calendar Sync</h2>
+  <p>Any Date field can optionally sync to a calendar of your choosing — enable it from the field's
+    settings. Workshop creates a single event (just a title and date) and keeps it updated as the field
+    changes. Turning sync off, or deleting the field or project, removes the event automatically.</p>
+
+  <h2>Vehicle & Maintenance Tracking</h2>
+  <p>Add a vehicle from the Garage section, then use "Decode VIN" to auto-fill year, make, and model.
+    Maintenance tasks can be tracked by mileage or date — mark one done and Workshop schedules its next
+    occurrence automatically if it's set up as recurring.</p>
+  <p>If VIN decoding doesn't return results, double check the VIN was entered correctly — Workshop relies
+    on the NHTSA's free public lookup service, which occasionally doesn't have data for older or unusual
+    vehicles.</p>
+
+  <h2>Something Not Working?</h2>
+  <p>If you've hit a bug, found something confusing, or a feature isn't behaving the way this page
+    describes, let us know — screenshots and steps to reproduce are always helpful, but not required.</p>
+
+  <h2>Contact</h2>
+  <div class="contact">
+    <p style="margin:0;">Reach us directly for support, bug reports, or feature requests:</p>
+    <p style="margin:8px 0 0;"><a href="mailto:questions@barbarusconsulting.com">questions@barbarusconsulting.com</a></p>
+  </div>
+
+  <p style="margin-top:24px;"><a href="/privacy/workshop/">View Workshop's Privacy Policy →</a></p>
+
+  <footer>Workshop is developed by Barbarus Consulting.</footer>
+
+</div>
+</body>
+</html>
