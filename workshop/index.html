@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop — A Project &amp; Maintenance Tracker for iOS</title>
+<meta name="description" content="Workshop is a personal project and maintenance tracker for iOS — custom fields, a garage with VIN-decoded vehicles, mileage or date-based maintenance, iCloud backup, calendar sync, and Siri shortcuts. All on-device, no account required.">
+<style>
+  :root{
+    --bg:#F4F6F8; --grain:url(../assets/grain-light.jpg);
+    --text:#121821; --heading:#1F2E45; --muted:#54606B; --link:#006E96;
+    --card:#ffffff; --border:#B0B7BC;
+    --accent:#00A8E8; --accent-ink:#121821;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#121821; --grain:url(../assets/grain-dark.jpg);
+      --text:#F4F6F8; --heading:#F4F6F8; --muted:#B0B7BC; --link:#00A8E8;
+      --card:#1F2E45; --border:rgba(176,183,188,0.28);
+      --accent:#00A8E8; --accent-ink:#121821;
+    }
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; padding:0; color:var(--text);
+    background-color:var(--bg); background-image:var(--grain); background-repeat:repeat;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.6;
+  }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; }
+  .back{ color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; }
+  .back:hover{ color:var(--link); }
+  header.page{ padding:22px 0; }
+
+  .hero{ padding:24px 0 56px; text-align:center; }
+  .hero-icon{ width:96px; height:96px; border-radius:22px; margin:0 auto 20px; box-shadow:0 8px 24px rgba(18,24,33,0.18); display:block; }
+  .hero-icon.icon-dark{ display:none; }
+  @media (prefers-color-scheme: dark){
+    .hero-icon.icon-light{ display:none; }
+    .hero-icon.icon-dark{ display:block; }
+  }
+  .eyebrow{ color:var(--link); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.6px; margin:0 0 10px; }
+  h1{ color:var(--heading); font-size:38px; font-weight:800; letter-spacing:-1px; line-height:1.12; margin:0 auto 14px; }
+  .lede{ font-size:18px; color:var(--muted); max-width:520px; margin:0 auto 28px; }
+  .hero-actions{ display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:var(--accent-ink);
+    font-weight:700; font-size:15px; text-decoration:none; padding:12px 24px; border-radius:999px;
+  }
+  .btn.secondary{ background:transparent; color:var(--heading); border:1px solid var(--border); margin-left:10px; }
+  .btn.disabled{
+    background:var(--card); color:var(--muted); border:1px solid var(--border);
+    cursor:default; pointer-events:none;
+  }
+  .btn.disabled svg{ opacity:0.6; }
+  .coming-soon-note{ color:var(--muted); font-size:13px; margin:0; }
+
+  section{ padding:48px 0; border-top:1px solid var(--border); }
+  h2{ color:var(--heading); font-size:24px; font-weight:800; letter-spacing:-0.4px; margin:0 0 8px; }
+  .section-sub{ color:var(--muted); font-size:15px; margin:0 0 32px; max-width:600px; }
+
+  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .grid.three{ grid-template-columns:1fr 1fr 1fr; }
+  @media (max-width:640px){
+    .grid, .grid.three{ grid-template-columns:1fr; }
+    h1{ font-size:30px; } .hero{ padding:16px 0 40px; }
+  }
+
+  .card{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; }
+  .card h3{ color:var(--heading); font-size:16px; font-weight:700; margin:0 0 8px; }
+  .card p{ font-size:14px; color:var(--muted); margin:0; }
+
+  .fact-row{ display:flex; flex-wrap:wrap; gap:14px 32px; }
+  .fact{ min-width:140px; }
+  .fact .label{ color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:0.5px; margin:0 0 4px; }
+  .fact .value{ color:var(--heading); font-size:15px; font-weight:700; margin:0; }
+
+  .links-row{ display:flex; gap:20px; flex-wrap:wrap; }
+  .links-row a{ color:var(--link); text-decoration:none; font-size:14px; font-weight:600; }
+  .links-row a:hover{ text-decoration:underline; }
+
+  footer{ padding:40px 0; color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page">
+    <a class="back" href="/">← Barbarus Consulting</a>
+  </header>
+
+  <div class="hero">
+    <img class="hero-icon icon-light" src="../assets/workshop-app-icon.png" alt="Workshop app icon">
+    <img class="hero-icon icon-dark" src="../assets/workshop-app-icon-dark.png" alt="Workshop app icon">
+    <p class="eyebrow">iOS App</p>
+    <h1>Workshop</h1>
+    <p class="lede">A personal project and maintenance tracker for iOS — for anyone with an ongoing build, a garage full of maintenance, or both.</p>
+    <div class="hero-actions">
+      <!-- TODO: once approved on the App Store, replace href="#" below with the real
+           https://apps.apple.com/app/id<APP_ID> link and remove the "disabled" class
+           plus the coming-soon-note paragraph. -->
+      <a class="btn disabled" href="#" aria-disabled="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17.06 2.94 12.68 4.7 9.71c.87-1.47 2.43-2.4 4.12-2.42 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.27-2.15 3.79.03 3.01 2.65 4.01 2.68 4.02-.02.07-.42 1.44-1.39 2.85M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+      </a>
+      <p class="coming-soon-note">Coming soon — Workshop is currently in review.</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>Projects, built your way</h2>
+    <p class="section-sub">Start from a template or build one from scratch. Every project gets its own set of fields, and you can add, remove, or rename them any time.</p>
+    <div class="grid three">
+      <div class="card">
+        <h3>Custom fields</h3>
+        <p>Text, rich notes, code with syntax highlighting, parts lists, cut lists, hyperlinks, dates, cost, and priority — mix and match per project.</p>
+      </div>
+      <div class="card">
+        <h3>Attachments &amp; 3D models</h3>
+        <p>Attach photos to any project, or drop in an STL, OBJ, or GLB file for an interactive 3D viewer right in the app.</p>
+      </div>
+      <div class="card">
+        <h3>Organize your way</h3>
+        <p>Folders, tags, filters, sorting, and search across every project — plus a Completed log so finished work isn't just gone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>A garage that keeps up with maintenance</h2>
+    <p class="section-sub">Add a vehicle and decode its VIN to auto-fill year, make, and model — then track maintenance by mileage, by date, or both.</p>
+    <div class="grid three">
+      <div class="card">
+        <h3>VIN decode</h3>
+        <p>One tap pulls year, make, model, trim, and dozens of other details from the vehicle's VIN.</p>
+      </div>
+      <div class="card">
+        <h3>Recurring maintenance</h3>
+        <p>Mark a task done and Workshop schedules the next occurrence automatically, whether it's tracked by mileage or by date.</p>
+      </div>
+      <div class="card">
+        <h3>Suggested maintenance</h3>
+        <p>A built-in catalog of common service items for your vehicle, ready to add with one tap instead of typing from scratch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Stays in sync with the rest of your life</h2>
+    <p class="section-sub">Workshop plugs into iOS instead of asking you to work around it.</p>
+    <div class="grid three">
+      <div class="card">
+        <h3>Calendar sync</h3>
+        <p>Any date field can push to a real calendar event, and stays updated automatically as the date changes.</p>
+      </div>
+      <div class="card">
+        <h3>Siri shortcuts</h3>
+        <p>"Add a note in Workshop" or "Mark maintenance done in Workshop" — hands-free, without opening the app first.</p>
+      </div>
+      <div class="card">
+        <h3>iCloud backup</h3>
+        <p>Back up straight to your own iCloud Drive, or export/import a backup file to move data between devices.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Built to actually be usable</h2>
+    <p class="section-sub">Support for Reduced Motion, Sufficient Contrast, and Differentiate Without Color Alone, full VoiceOver labeling, and an in-app text size control.</p>
+    <div class="fact-row">
+      <div class="fact">
+        <p class="label">Platform</p>
+        <p class="value">iPhone, iOS 16+</p>
+      </div>
+      <div class="fact">
+        <p class="label">Account required</p>
+        <p class="value">None</p>
+      </div>
+      <div class="fact">
+        <p class="label">Data storage</p>
+        <p class="value">On-device</p>
+      </div>
+      <div class="fact">
+        <p class="label">Developer</p>
+        <p class="value">Barbarus Consulting</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>More</h2>
+    <div class="links-row">
+      <a href="/support/workshop/">Support &amp; FAQ →</a>
+      <a href="/privacy/workshop/">Privacy Policy →</a>
+      <a href="mailto:questions@barbarusconsulting.com">Contact us →</a>
+    </div>
+  </section>
+
+  <footer>
+    Workshop is developed by Barbarus Consulting.
+  </footer>
+
+</div>
+</body>
+</html>

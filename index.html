@@ -41,7 +41,7 @@
   header.site{ padding:22px 0; }
   header.site .wrap{ display:flex; align-items:center; justify-content:space-between; }
   .wordmark{ display:flex; align-items:center; text-decoration:none; }
-  .logo-mark{ display:block; height:44px; width:auto; }
+  .logo-mark{ display:block; height:88px; width:auto; }
   .logo-mark.logo-dark{ display:none; border-radius:6px; }
   @media (prefers-color-scheme: dark){
     .logo-mark.logo-light{ display:none; }
@@ -79,7 +79,12 @@
     display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
   }
   .app-card .app-info{ display:flex; align-items:center; gap:14px; }
-  .app-card .app-icon{ width:44px; height:44px; border-radius:11px; flex-shrink:0; }
+  .app-card .app-icon{ width:44px; height:44px; border-radius:11px; flex-shrink:0; display:block; }
+  .app-card .app-icon.icon-dark{ display:none; }
+  @media (prefers-color-scheme: dark){
+    .app-card .app-icon.icon-light{ display:none; }
+    .app-card .app-icon.icon-dark{ display:block; }
+  }
   .app-card .app-name{ color:var(--heading); font-size:16px; font-weight:700; margin:0 0 4px; }
   .app-card .app-desc{ font-size:14px; color:var(--muted); margin:0; }
   .app-links{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
@@ -156,14 +161,16 @@
     <p class="section-sub">Software we've built and shipped ourselves.</p>
 
     <div class="app-card">
-      <div class="app-info">
-        <img class="app-icon" src="assets/workshop-app-icon.png" alt="Workshop app icon">
+      <a class="app-info" href="/workshop/" style="text-decoration:none;">
+        <img class="app-icon icon-light" src="assets/workshop-app-icon.png" alt="Workshop app icon">
+        <img class="app-icon icon-dark" src="assets/workshop-app-icon-dark.png" alt="Workshop app icon">
         <div>
           <p class="app-name">Workshop</p>
           <p class="app-desc">A personal project and maintenance tracker for iOS.</p>
         </div>
-      </div>
+      </a>
       <div class="app-links">
+        <a href="/workshop/">Learn More →</a>
         <a href="/support/workshop/">Support →</a>
         <a href="/privacy/workshop/">Privacy Policy →</a>
       </div>

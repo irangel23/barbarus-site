@@ -29,6 +29,11 @@
   h1{ color:var(--heading); font-size:28px; font-weight:700; margin:0 0 6px; }
   .app-name-inline{ display:inline-flex; align-items:center; gap:8px; vertical-align:middle; }
   .app-icon-mark{ width:28px; height:28px; border-radius:7px; display:inline-block; }
+  .app-icon-mark.icon-dark{ display:none; }
+  @media (prefers-color-scheme: dark){
+    .app-icon-mark.icon-light{ display:none; }
+    .app-icon-mark.icon-dark{ display:inline-block; }
+  }
   .updated{ color:var(--muted); font-size:14px; margin:0 0 32px; }
   h2{ color:var(--heading); font-size:19px; font-weight:700; margin:36px 0 10px; }
   p, li{ font-size:16px; }
@@ -46,7 +51,7 @@
 
   <a class="back" href="/">← Barbarus Consulting</a>
 
-  <h1>Privacy Policy for <span class="app-name-inline"><img class="app-icon-mark" src="../../assets/workshop-app-icon.png" alt="">Workshop</span></h1>
+  <h1>Privacy Policy for <span class="app-name-inline"><img class="app-icon-mark icon-light" src="../../assets/workshop-app-icon.png" alt=""><img class="app-icon-mark icon-dark" src="../../assets/workshop-app-icon-dark.png" alt="">Workshop</span></h1>
   <p class="updated">Last updated: August 11, 2026</p>
 
   <h2>Overview</h2>
