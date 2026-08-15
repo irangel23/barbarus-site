@@ -78,7 +78,8 @@
     background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px 26px;
     display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
   }
-  .app-card .app-info{ display:flex; align-items:center; gap:14px; }
+  .app-card .app-info{ display:flex; align-items:center; gap:14px; min-width:0; }
+  .app-card .app-info > div{ min-width:0; }
   .app-card .app-icon{ width:44px; height:44px; border-radius:11px; flex-shrink:0; display:block; }
   .app-card .app-icon.icon-dark{ display:none; }
   @media (prefers-color-scheme: dark){
@@ -88,14 +89,14 @@
   .app-card .app-name{ color:var(--heading); font-size:16px; font-weight:700; margin:0 0 4px; }
   .app-card .app-desc{ font-size:14px; color:var(--muted); margin:0; }
   .app-links{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
-  .app-card a{ color:var(--link); text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap; }
-  .app-card a:hover{ text-decoration:underline; }
+  .app-links a{ color:var(--link); text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap; }
+  .app-links a:hover{ text-decoration:underline; }
   .app-note{ color:var(--muted); font-size:14px; margin:18px 0 0; }
 
   .contact-card{
     background:var(--card); border:1px solid var(--border); border-radius:16px; padding:30px 26px; text-align:center;
   }
-  .contact-card a.email{ display:inline-block; margin-top:10px; font-size:19px; font-weight:700; color:var(--link); text-decoration:none; }
+  .contact-card a.email{ display:inline-block; margin-top:10px; font-size:19px; font-weight:700; color:var(--link); text-decoration:none; overflow-wrap:break-word; max-width:100%; }
   .contact-card a.email:hover{ text-decoration:underline; }
 
   footer{ padding:40px 0; color:var(--muted); font-size:13px; }
