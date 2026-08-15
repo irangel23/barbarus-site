@@ -8,8 +8,34 @@ Workshop iOS app. Static HTML, no build step, no framework.
 This folder is its own git repo, separate from the Workshop app repo it happens to
 live inside on disk (Workshop's `.gitignore` excludes it). Remote:
 `https://github.com/irangel23/barbarus-site.git`. Deployed via GitHub Pages —
-`CNAME` points the custom domain `barbarusconsulting.com` at it. This sandbox can't
-reach github.com, so commits happen locally here and the user pushes manually.
+`CNAME` points the custom domain `barbarusconsulting.com` at it. `git push`/`pull`
+need the user's own machine (the cloud sandbox has no git network access to GitHub),
+so commits happen locally here and the user pushes manually. WebFetch *can* read
+`github.com`/`raw.githubusercontent.com` (just not push/pull), which is useful for
+verifying a deploy actually landed — note both that CDN and WebFetch's own cache can
+serve stale content for a few minutes right after a push, so a "not updated yet"
+result isn't conclusive on its own.
+
+## Staying in sync with the Workshop app
+
+Source of truth for what Workshop actually does is `../README.md` — one level up, in
+the Workshop app's own repo, not this one. It's actively maintained as the app changes.
+
+Site copy describing app features lives in:
+- `index.html` — the `.app-desc` one-liner and `<meta name="description">`
+- `workshop/index.html` — the hero `<h1>`/`.lede`, the three feature-card grids, the
+  `.fact-row` (platform, account required, data storage, developer), and its own meta
+  description
+- `support/workshop/index.html` / `privacy/workshop/index.html` — only if the app's
+  actual behavior changes in ways that affect support answers or data-handling claims
+
+When the user mentions an app change, or asks to sync/update the Workshop page, read
+`../README.md`, diff it against the current site copy, and update whatever's now
+inaccurate or missing — don't wait for exact wording. Match the app's real capability,
+not README's literal phrasing (README is written for developers; site copy stays
+marketing-toned). Also check the App Store status — `workshop/index.html`'s
+hero-actions block has a TODO marking the "Coming soon" button as a placeholder until
+the app is actually approved.
 
 ## Structure
 
