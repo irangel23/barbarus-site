@@ -63,18 +63,32 @@
     Answers to common questions, plus how to reach us directly if you're stuck or found a bug.
   </p>
 
-  <h2>Backing Up and Moving Your Data</h2>
-  <p>Since Workshop stores everything on your device and has no account or server, backups are entirely
-    in your hands. There are two ways to do it, both from Settings:</p>
+  <h2>Syncing and Backing Up Your Data</h2>
+  <p>Since Workshop stores everything on your device and has no account or server, keeping your data in
+    sync or backed up is entirely in your hands. There are a few ways to do it, all from Settings:</p>
+  <h3>iCloud Sync</h3>
+  <p>Turn on "iCloud Sync" to keep everything — projects, vehicles, maintenance records, attachments, and
+    app settings — automatically up to date across every device signed into the same iCloud account. This
+    is the easiest way to use Workshop on both an iPhone and an iPad, or to pick up right where you left
+    off after switching devices.</p>
   <h3>Back Up to iCloud</h3>
-  <p>Tap "Back Up to iCloud" to save a backup file to your own iCloud Drive, in a folder private to
-    Workshop. This is the easiest way to move data to a new device — just restore from the same option
-    after installing Workshop there.</p>
+  <p>Tap "Back Up to iCloud" to save a manual, point-in-time backup file to your own iCloud Drive, in a
+    folder private to Workshop. Handy alongside (or instead of) iCloud Sync if you'd rather control exactly
+    when a backup happens.</p>
   <h3>Export / Import Backup</h3>
   <p>"Export Backup" creates a local backup file and hands it to iOS's share sheet, so you can save it to
     Files, send it by AirDrop, email it to yourself, or store it anywhere else you'd like. "Import Backup"
     reads a backup file back into the app. Useful for backups outside iCloud, or moving data between
     accounts.</p>
+
+  <h2>AI Chat</h2>
+  <p>Drop an "AI Chat" field into any project or maintenance task to have a running conversation with
+    Claude, Anthropic's AI model, right there in that project or task. Set it up once from Settings → AI
+    Assistant by pasting in your own Anthropic API key (get one at
+    <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a>) —
+    usage is billed directly to your Anthropic account, not through Workshop. Messages you send go straight
+    from your device to Anthropic; if one fails to send (no connection, no key yet, a temporary rate
+    limit), it stays in the thread with a Retry button rather than getting lost.</p>
 
   <h2>Siri Shortcuts</h2>
   <p>Workshop supports two Siri shortcuts, available once you've created at least one project:</p>
@@ -92,13 +106,18 @@
     settings. Workshop creates a single event (just a title and date) and keeps it updated as the field
     changes. Turning sync off, or deleting the field or project, removes the event automatically.</p>
 
-  <h2>Vehicle & Maintenance Tracking</h2>
+  <h2>Vehicle &amp; Maintenance Tracking</h2>
   <p>Add a vehicle from the Garage section, then use "Decode VIN" to auto-fill year, make, and model.
     Maintenance tasks can be tracked by mileage or date — mark one done and Workshop schedules its next
-    occurrence automatically if it's set up as recurring.</p>
+    occurrence automatically if it's set up as recurring. Suggested Maintenance offers a one-tap starting
+    catalog of common service items — manufacturer-specific for many makes, and a general schedule
+    otherwise.</p>
   <p>If VIN decoding doesn't return results, double check the VIN was entered correctly — Workshop relies
     on the NHTSA's free public lookup service, which occasionally doesn't have data for older or unusual
-    vehicles.</p>
+    vehicles, or is briefly overloaded (Workshop retries automatically a few times before giving up).</p>
+  <p>The Receipt field can also read the merchant, date, and totals off a photo of a receipt automatically
+    — this happens entirely on your device (Apple's Vision framework, no network request involved), so
+    always double-check a scan before relying on it.</p>
 
   <h2>Something Not Working?</h2>
   <p>If you've hit a bug, found something confusing, or a feature isn't behaving the way this page
