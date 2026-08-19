@@ -57,7 +57,7 @@
   <a class="back" href="/">← Barbarus Consulting</a>
 
   <h1>Privacy Policy for <span class="app-name-inline"><img class="app-icon-mark icon-light" src="../../assets/workshop-app-icon.png" alt=""><img class="app-icon-mark icon-dark" src="../../assets/workshop-app-icon-dark.png" alt="">Workshop</span></h1>
-  <p class="updated">Last updated: August 11, 2026</p>
+  <p class="updated">Last updated: August 19, 2026</p>
 
   <h2>Overview</h2>
   <p>
@@ -86,13 +86,27 @@
     on-device storage. None of this leaves your device unless you take one of the actions described below.</p>
 
   <h2>Optional Features That Involve Your Data</h2>
-  <p>A few features are opt-in and involve data leaving the app — always as a direct result of an action you
-    take, never automatically or in the background:</p>
+  <p>A few features are opt-in and involve data leaving the app. Most only send anything as a direct result
+    of an action you take (attaching a photo, decoding a VIN, sending a chat message); the one exception is
+    iCloud Sync, which — once you turn it on — keeps syncing in the background the way any app's iCloud sync
+    would, until you turn it back off:</p>
   <ul>
     <li>
       <strong>Camera and Photo Library</strong> — if you attach a photo to a project, vehicle, or maintenance
       record, Workshop accesses your camera or photo library only at that moment, with your permission,
       to let you pick or take the photo. The resulting image is stored on your device as described above.
+    </li>
+    <li>
+      <strong>iCloud Sync</strong> — if you turn on "iCloud Sync" in Settings, Workshop keeps your projects,
+      templates, folders, vehicles, maintenance records, attachments, and app settings up to date across
+      your own devices using Apple's CloudKit service and your private iCloud account. This data is stored
+      in the private CloudKit database tied to your Apple ID — Barbarus Consulting never has access to it,
+      the same way we never have access to iCloud Backup data (below). To make sync happen promptly instead
+      of only periodically, the app registers for silent push notifications through Apple's push service;
+      these pushes carry no message content of their own, they simply tell the app it's time to check
+      iCloud for changes. Turning iCloud Sync off stops all of this; your data then stays local to each
+      device again going forward (data already synced to iCloud remains there until you delete it, the same
+      way iCloud Backup files do).
     </li>
     <li>
       <strong>iCloud Backup</strong> — if you tap "Back Up to iCloud," Workshop writes a backup file
@@ -114,32 +128,63 @@
       sync off, or deleting the field/project, removes the event.
     </li>
     <li>
+      <strong>Reminders (Notify Me)</strong> — if you turn on "Notify Me" for a Date field, Workshop
+      schedules a local notification on your device for that date using iOS's own notification system.
+      This never involves a network request or a server of any kind — the reminder is scheduled and
+      delivered entirely on your device.
+    </li>
+    <li>
+      <strong>Receipt Scanning</strong> — the Receipt field can read the text off a photo of a receipt to
+      fill in the merchant, date, and amounts automatically. This uses Apple's on-device Vision framework —
+      the photo never leaves your device and no network request is made to recognize the text.
+    </li>
+    <li>
       <strong>VIN Decoding</strong> — if you enter a vehicle's VIN and use "Decode VIN," Workshop sends that
       VIN number to the National Highway Traffic Safety Administration's free public vPIC API
       (<a href="https://vpic.nhtsa.dot.gov/" target="_blank" rel="noopener">vpic.nhtsa.dot.gov</a>), a U.S.
       government service, to look up the vehicle's year, make, model, and similar details. Only the VIN
       itself is sent — no other information about you or your device.
     </li>
+    <li>
+      <strong>AI Chat</strong> — the AI Chat field lets you have a conversation with Claude, Anthropic's AI
+      model, attached to a project or maintenance task. This feature is entirely opt-in and requires you to
+      supply your own Anthropic API key (from your own Anthropic account, entered in Settings → AI
+      Assistant). If you use this feature, the messages you type — and Claude's replies — are sent directly
+      from your device to Anthropic's API to generate a response; Barbarus Consulting is never involved in
+      or able to see this exchange. Your API key is stored in your device's Keychain, not in the app's
+      regular data storage, so it is never included in iCloud Sync, iCloud Backup, or Export Backup. If you
+      don't add an API key or add a chat field, none of this applies to you. See
+      <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy
+      Policy</a> for how they handle data sent to their API.
+    </li>
   </ul>
 
   <h2>Third-Party Services</h2>
-  <p>Workshop relies on two categories of third-party infrastructure, both operated by parties you already
-    have a direct relationship with, not by Barbarus Consulting:</p>
+  <p>Workshop relies on a few categories of third-party infrastructure, all operated by parties you already
+    have a direct relationship with (your own Apple ID, or your own Anthropic account), not by Barbarus
+    Consulting:</p>
   <ul>
-    <li><strong>Apple</strong> — for iCloud backup and calendar sync, both of which are optional and use your
-      own Apple ID. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's
+    <li><strong>Apple</strong> — for iCloud Sync, iCloud Backup, calendar sync, and the silent push
+      notifications that prompt iCloud Sync to check for changes promptly. All of these are optional and use
+      your own Apple ID. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's
       Privacy Policy</a>.</li>
     <li><strong>NHTSA (vPIC API)</strong> — for VIN decoding, only if you use that feature. See the
       <a href="https://vpic.nhtsa.dot.gov/api/" target="_blank" rel="noopener">vPIC API documentation</a>.</li>
+    <li><strong>Anthropic</strong> — for the AI Chat field, only if you add your own API key and use that
+      feature. See <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's
+      Privacy Policy</a>.</li>
   </ul>
 
   <h2>Data Retention and Deletion</h2>
   <p>Your data stays on your device for as long as Workshop is installed. Deleting the app removes all of its
-    locally stored data and files. iCloud backups and synced calendar events live outside the app itself (in
-    your iCloud Drive and calendar, respectively) and persist until you remove them there, even after
-    uninstalling Workshop — Workshop deletes calendar events it created automatically when you delete the
-    corresponding field, project, or maintenance record within the app, but backup files in iCloud Drive are
-    left for you to manage.</p>
+    locally stored data and files. iCloud Sync data (in your private CloudKit database), iCloud backups, and
+    synced calendar events all live outside the app itself and persist until you remove them there, even
+    after uninstalling Workshop — Workshop deletes calendar events it created and iCloud Sync records
+    automatically when you delete the corresponding field, project, or record within the app, but backup
+    files in iCloud Drive are left for you to manage. AI Chat conversations are stored locally like any other
+    field data (and sync via iCloud Sync if you have it on) and are deleted the same way — Barbarus
+    Consulting has no separate copy to delete, since we never receive one. For how long Anthropic itself
+    retains the messages it processes on its end, see Anthropic's own privacy policy, linked above.</p>
 
   <h2>Children's Privacy</h2>
   <p>Workshop is not directed at children and does not knowingly collect information from anyone, regardless
@@ -152,8 +197,8 @@
 
   <h2>Changes to This Policy</h2>
   <p>If this policy changes, the "Last updated" date at the top of this page will change accordingly. Since
-    Workshop has no accounts or push notifications, we'd encourage checking back here periodically if you
-    want to stay current.</p>
+    Workshop has no accounts and no way to reach you directly, we'd encourage checking back here
+    periodically if you want to stay current.</p>
 
   <h2>Contact</h2>
   <div class="contact">

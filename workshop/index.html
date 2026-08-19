@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Workshop — A Project &amp; Maintenance Tracker for iOS</title>
-<meta name="description" content="Workshop is a personal project and maintenance tracker for iPhone &amp; iPad — custom fields, a garage with VIN-decoded vehicles, mileage or date-based maintenance, iCloud sync, calendar reminders, and Siri shortcuts. No account required, on-device by default.">
+<meta name="description" content="Workshop is a personal project and maintenance tracker for iPhone &amp; iPad — custom fields, an AI chat field powered by your own Claude API key, receipt scanning, a garage with VIN-decoded vehicles and manufacturer-specific maintenance, iCloud sync, calendar reminders, and Siri shortcuts. No account required, on-device by default.">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-workshop-light-32.png" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-workshop-light-16.png" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-workshop-dark-32.png" media="(prefers-color-scheme: dark)">
@@ -53,12 +53,6 @@
     font-weight:700; font-size:15px; text-decoration:none; padding:12px 24px; border-radius:999px;
   }
   .btn.secondary{ background:transparent; color:var(--heading); border:1px solid var(--border); margin-left:10px; }
-  .btn.disabled{
-    background:var(--card); color:var(--muted); border:1px solid var(--border);
-    cursor:default; pointer-events:none;
-  }
-  .btn.disabled svg{ opacity:0.6; }
-  .coming-soon-note{ color:var(--muted); font-size:13px; margin:0; }
 
   section{ padding:48px 0; border-top:1px solid var(--border); }
   h2{ color:var(--heading); font-size:24px; font-weight:800; letter-spacing:-0.4px; margin:0 0 8px; }
@@ -101,14 +95,10 @@
     <h1>Workshop</h1>
     <p class="lede">A personal project and maintenance tracker for iOS — for anyone with an ongoing build, a garage full of maintenance, or both.</p>
     <div class="hero-actions">
-      <!-- TODO: once approved on the App Store, replace href="#" below with the real
-           https://apps.apple.com/app/id<APP_ID> link and remove the "disabled" class
-           plus the coming-soon-note paragraph. -->
-      <a class="btn disabled" href="#" aria-disabled="true">
+      <a class="btn" href="https://apps.apple.com/us/app/workshop-plan-build/id6800072157" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17.06 2.94 12.68 4.7 9.71c.87-1.47 2.43-2.4 4.12-2.42 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.27-2.15 3.79.03 3.01 2.65 4.01 2.68 4.02-.02.07-.42 1.44-1.39 2.85M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         Download on the App Store
       </a>
-      <p class="coming-soon-note">Coming soon — Workshop is currently in review.</p>
     </div>
   </div>
 
@@ -123,6 +113,14 @@
       <div class="card">
         <h3>Attachments &amp; 3D models</h3>
         <p>Attach photos to any project, or drop in an STL, OBJ, or GLB file for an interactive 3D viewer right in the app.</p>
+      </div>
+      <div class="card">
+        <h3>Receipt scanning</h3>
+        <p>Snap a photo of a receipt and Workshop reads the merchant, date, and totals off it automatically, entirely on-device.</p>
+      </div>
+      <div class="card">
+        <h3>AI chat</h3>
+        <p>Drop an AI Chat field into any project or maintenance task to talk it through with Claude, using your own API key.</p>
       </div>
       <div class="card">
         <h3>Organize your way</h3>
@@ -145,7 +143,7 @@
       </div>
       <div class="card">
         <h3>Suggested maintenance</h3>
-        <p>A built-in catalog of common service items for your vehicle, ready to add with one tap instead of typing from scratch.</p>
+        <p>A built-in catalog of service items — manufacturer-specific for many makes, general otherwise — ready to add with one tap instead of typing from scratch.</p>
       </div>
     </div>
   </section>
